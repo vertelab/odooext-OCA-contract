@@ -4,14 +4,14 @@
 
 {
     "name": "Recurring - Product Contract",
-    "version": "19.0.2.0.1",
+    "version": "2.0.1",
     "category": "Contract Management",
     "license": "AGPL-3",
     "author": "LasLabs, ACSONE SA/NV, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/contract",
     "depends": ["product", "contract_termination", "sale"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "wizards/res_config_settings.xml",
         "views/contract.xml",
         "views/product_template.xml",

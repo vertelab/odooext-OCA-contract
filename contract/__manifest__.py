@@ -11,7 +11,7 @@
 
 {
     "name": "Recurring - Contracts Management",
-    "version": "19.0.1.5.0",
+    "version": "1.5.0",
     "category": "Contract Management",
     "license": "AGPL-3",
     "author": "Tecnativa, ACSONE SA/NV, Odoo Community Association (OCA)",
@@ -20,7 +20,7 @@
     "development_status": "Production/Stable",
     "data": [
         "security/contract_tag.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "security/contract_security.xml",
         "report/report_contract.xml",
         "report/contract_views.xml",
