@@ -11,7 +11,7 @@
 
 {
     "name": "Recurring - Contracts Management",
-    "version": "18.0.3.0.0",
+    "version": "1.5.0",
     "category": "Contract Management",
     "license": "AGPL-3",
     "author": "Tecnativa, ACSONE SA/NV, Odoo Community Association (OCA)",
@@ -29,8 +29,6 @@
         "data/template_mail_notification.xml",
         "data/mail_message_subtype.xml",
         "data/ir_ui_menu.xml",
-        "wizards/contract_manually_create_invoice.xml",
-        "wizards/merge_views.xml",
         "views/contract_tag.xml",
         "views/contract_template.xml",
         "views/contract_template_line.xml",
@@ -39,6 +37,7 @@
         "views/res_partner_view.xml",
         "views/res_config_settings.xml",
         "views/contract_portal_templates.xml",
+        "wizards/contract_manually_create_invoice.xml",
     ],
     "assets": {
         "web.assets_frontend": ["contract/static/src/scss/frontend.scss"],
