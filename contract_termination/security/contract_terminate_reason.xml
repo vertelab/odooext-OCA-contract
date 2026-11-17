@@ -2,7 +2,7 @@
 <!-- Copyright 2020 ACSONE SA/NV
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
 <odoo>
-    <record model="ir.model.access" id="contract_terminate_reason_access_manager">
+<record model="ir.model.access" id="contract_terminate_reason_access_manager">
         <field name="name">contract.terminate.reason access manager</field>
         <field name="model_id" ref="model_contract_terminate_reason" />
         <field name="group_id" ref="account.group_account_manager" />
