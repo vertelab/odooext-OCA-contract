@@ -41,6 +41,9 @@
         "views/res_partner_view.xml",
         "views/res_config_settings.xml",
         "views/contract_portal_templates.xml",
+        # #if VERSION >= "20.0"
+        "data/portal_entry_data.xml",
+        # #endif
         "wizards/contract_manually_create_invoice.xml",
     ],
     "assets": {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Vertel AB
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo noupdate="1">
+    <!-- 20.0 builds the portal dashboard from portal.entry rows instead of
+         inheriting a div in portal.portal_my_home. The count is resolved by
+         CustomerPortal._prepare_portal_counter_values in controllers/main.py. -->
+    <record id="portal_contract_client" model="portal.entry">
+        <field name="name">Contracts</field>
+        <field name="description">Follow your recurring contracts</field>
+        <field name="url">/my/contracts</field>
+        <field name="image" type="bytes" file="contract/static/description/icon.png"/>
+        <field name="placeholder_count">contract_count</field>
+        <field name="category">client_category</field>
+        <field name="sequence" eval="60"/>
+    </record>
+</odoo>

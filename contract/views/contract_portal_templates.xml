@@ -25,25 +25,11 @@
             </li>
         </xpath>
     </template>
-    <template
-        id="portal_my_home_contract"
-        name="Show Contracts"
-        inherit_id="portal.portal_my_home"
-        customize_show="True"
-        priority="30"
-    >
-        <div id="portal_common_category" position="inside">
-            <t t-call="portal.portal_docs_entry">
-                <t
-                    t-set="icon"
-                    t-value="'/contract/static/src/img/contract_icon.svg'"
-                />
-                <t t-set="title">Contracts</t>
-                <t t-set="url" t-value="'/my/contracts'" />
-                <t t-set="placeholder_count" t-value="'contract_count'" />
-            </t>
-        </div>
-    </template>
+    <!-- 20.0 replaced the portal_common_category div with portal.entry records.
+         The dashboard is built from portal.entry rows grouped by category and
+         rendered by portal_cards; there is no div to inherit into. The entry
+         itself lives in data/portal_entry_data.xml. This template is kept for
+         19.0 and below, where the category div still exists. -->
     <template id="portal_my_contracts" name="My Contracts">
         <t t-call="portal.portal_layout">
             <t t-set="breadcrumbs_searchbar" t-value="True" />

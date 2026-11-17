@@ -3,6 +3,7 @@ contract/data/contract_cron.xml
 contract/data/ir_ui_menu.xml
 contract/data/mail_message_subtype.xml
 contract/data/mail_template.xml
+contract/data/portal_entry_data.xml
 contract/data/template_mail_notification.xml
 contract/models/account_move_line.py
 contract/models/contract.py
