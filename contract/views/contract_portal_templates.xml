@@ -16,7 +16,8 @@
                 <a
                     t-if="contract"
                     t-attf-href="/my/contracts?{{ keep_query() }}"
-                >Contracts</a>
+                >Contracts
+                </a>
                 <t t-else="">Contracts</t>
             </li>
             <li t-if="contract" class="breadcrumb-item active">
@@ -87,7 +88,7 @@
     </template>
     <template id="portal_contract_page" name="My Contract">
         <t t-call="portal.portal_layout">
-            <t groups="account.group_account_invoice">
+            <t t-set="o_portal_fullwidth_alert" groups="account.group_account_invoice">
                 <t t-call="portal.portal_back_in_edit_mode">
                     <t
                         t-set="backend_url"
@@ -95,11 +96,41 @@
                     />
                 </t>
             </t>
-            <h5 class="mb-0">
-                <span>
-                            Contract - <span t-field="contract.name" />
-                        </span>
-            </h5>
+            <!-- Use the generic portal sidebar class. The sale-specific
+                 "o_portal_sale_sidebar" binds sale/sale_management frontend
+                 interactions that expect a sales order and crash here. -->
+            <div class="row o_portal_sidebar">
+                <div class="d-flex col-lg-4 col-xxl-3 d-print-none">
+                    <div
+                        id="sidebar_content"
+                        class="o_portal_sidebar_content flex-grow-1 mb-4 mb-lg-0 pe-lg-4"
+                    >
+                        <div class="d-flex flex-column gap-2">
+                            <a
+                                class="btn btn-light o_print_btn flex-grow-1"
+                                role="button"
+                                target="_blank"
+                                title="View Details"
+                                t-att-href="'/my/contracts/%s?report_type=pdf' % (contract.id,)"
+                            >
+                                <i class="fa fa-print me-1" />View Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="vr d-none d-lg-block bg-300" />
+                </div>
+                <div
+                    id="contract_content"
+                    class="col-12 col-lg-8 col-xxl-9 mt-5 mt-lg-0"
+                >
+                    <div id="introduction" class="border-bottom-0 pt-0 pb-3">
+                        <h2 id="quote_header_1" data-anchor="true">
+                            <span>Contract </span>
+                            <em t-field="contract.name" />
+                        </h2>
+                    </div>
+                </div>
+            </div>
             <div id="general_information">
                 <div class="row mt4">
                     <div
@@ -184,6 +215,14 @@
                                 />
                             </div>
                         </div>
+                        <div t-if="contract.payment_term_id" class="row mb-2 mb-sm-1">
+                            <div class="col-12 col-sm-4">
+                                <strong>Payment Terms</strong>
+                            </div>
+                            <div class="col-12 col-sm-8">
+                                <span t-field="contract.payment_term_id" />
+                            </div>
+                        </div>
                         <div t-if="contract.date_end" class="row mb-2 mb-sm-1">
                             <div class="col-12 col-sm-4">
                                 <strong>Date end</strong>
@@ -203,26 +242,25 @@
                             <tr>
                                 <th name="th_name" class="text-left">Description</th>
                                 <th name="th_quantity" class="text-right">Quantity</th>
-                                <th
-                                    name="th_price_unit"
-                                    class="text-right"
-                                >Price unit</th>
-                                <th
-                                    name="th_discount"
-                                    class="text-right"
-                                >Discount (%)</th>
+                                <th name="th_price_unit" class="text-right">Price unit
+                                </th>
+                                <th name="th_discount" class="text-right">Discount (%)
+                                </th>
                                 <th
                                     name="th_price_subtotal"
                                     class="text-right"
-                                >Sub Total</th>
+                                >Sub Total
+                                </th>
                                 <th
                                     name="th_recurring_interval"
                                     class="text-right"
-                                >Recurrence</th>
+                                >Recurrence
+                                </th>
                                 <th
                                     name="th_recurring_next_date"
                                     class="text-right"
-                                >Date of next invoice</th>
+                                >Date of next invoice
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="contract_tbody">
@@ -290,7 +328,6 @@
             <section
                 t-if="contract.modification_ids"
                 class="s_timeline pt24 pb48 o_colored_level"
-                data-snippet="s_timeline"
             >
                 <div class="container s_timeline_line">
                     <t t-set="last_modification_date" t-value="False" />
@@ -317,10 +354,7 @@
                             </t>
                         </div>
                         <div class="s_timeline_content s_timeline_content_left d-flex">
-                            <div
-                                class="s_timeline_card s_card card bg-white w-100"
-                                data-snippet="s_card"
-                            >
+                            <div class="s_timeline_card s_card card bg-white w-100">
                                 <div class="card-body">
                                     <div
                                         class="card-text o_default_snippet_text"
